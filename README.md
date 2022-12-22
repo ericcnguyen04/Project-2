@@ -7,12 +7,12 @@ A social software used to provide users resources on making alcoholic beverages 
 =!!===!!===!!=
 
 ## ERDs
-![wireframe](/Users/ericnguyen/seir-1114/unit2/PROJECT-2/img/Screen Shot 2022-12-22 at 12.30.23 AM.png)
+![Alt text](/Users/ericnguyen/seir-1114/unit2/PROJECT-2/img/Screen Shot 2022-12-22 at 12.37.26 AM.png)
 
 ## Restful Routing Chart
 
 ## Wireframes
-![wireframe](/Users/ericnguyen/seir-1114/unit2/PROJECT-2/img/Screen Shot 2022-12-22 at 12.37.26 AM.png)
+![Alt text](/Users/ericnguyen/seir-1114/unit2/PROJECT-2/img/Screen Shot 2022-12-22 at 12.37.26 AM.png)
 
 ## User Stories
 As a user, I want to see a list of recipes I have favorited.
