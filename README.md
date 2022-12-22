@@ -9,12 +9,12 @@ https://rapidapi.com/collection/alcohol-brewery-api\
 TBD
 
 ## ERDs
-![Screenshot](myERD.png)
+![Screenshot](./img/myERD.png)
 
 ## Restful Routing Chart
 
 ## Wireframes
-![Screenshot](myWireframe.png)
+![Screenshot](./img/myWireframe.png)
 
 ## User Stories
 As a user, I want to see a list of recipes I have favorited.
