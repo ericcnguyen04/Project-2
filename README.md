@@ -4,9 +4,8 @@
 A social software used to provide users resources on making alcoholic beverages for special occasions for parties, events, etc.
 
 ## API
-=!!===!!===!!=
-https://rapidapi.com/collection/alcohol-brewery-api\
-TBD
+https://www.thecocktaildb.com/api.php
+![Screenshot](./img/myApi.png)
 
 ## ERDs
 ![Screenshot](./img/myERD.png)
