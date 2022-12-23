@@ -8,7 +8,7 @@ https://www.thecocktaildb.com/api.php
 ![Screenshot](./img/myApi.png)
 
 ## ERDs
-![Screenshot](./img/myERD.png)
+![Screenshot](./img/myERDv2.png)
 
 ## Restful Routing Chart
 
