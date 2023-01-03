@@ -1,2 +1,12 @@
 /user/profile
 /home
+
+
+sequelize model:create --name beverage --attributes name:string,description:string,ingredient:text,userId:integer
+
+sequelize model:create --name category --attributes name:string
+
+sequelize model:create --name beverages_categories --attributes beverageId:integer,categoryId:integer
+
+
+routes

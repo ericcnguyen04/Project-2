@@ -60,6 +60,9 @@ app.get('/', (req, res) => {
 })
 
 app.use('/users', require('./controllers/users'))
+app.use('/drink', require('./controllers/drink'))
+
+
 
 // === listen on a port
 app.listen(PORT, () => {
