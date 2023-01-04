@@ -2,4 +2,22 @@
 
 <h2>Welcome Home, user</h2>
 
+<% posts.forEach(function(a) { %>
+    <div>
+        <h2>
+            <a href="/drink/<%= a.id %>"><%= a.name %></a> by <%= user.email %>
+        </h2>
+        <h3><%= a.description %></h3>
+            <p> <%= a.ingredient%></p>
+
+             <!-- delete button to remove post from db -->
+            <form method="POST" action="/?_method=DELETE">
+            <button type="submit">Delete</button>
+            </form>
+            <!-- link to a page that will show an edit form for this dino -->
+            <a href="/edit">edit</a>
+    </div>
+  <% }) %>
+
+
 <%- include('partials/footer.ejs') %> 

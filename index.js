@@ -4,13 +4,18 @@ const express = require('express')
 const cookieParser = require('cookie-parser')
 const db = require('./models')
 const crypto = require('crypto-js')
+const axios = require('axios')
+const methodOverride = require('method-override')
+
 
 // === app config
 const app = express()
-const PORT = process.env.PORT || 8000
+const PORT = process.env.PORT || 4000
 app.set('view engine', 'ejs')
 // parse request bodies from html forms
 app.use(express.urlencoded({extended: false}))
+// enable PUTing and DELETEing from HTML5 forms
+app.use(methodOverride('_method'))
 // tell express to parse incoming cookies
 app.use(cookieParser())
 
@@ -52,12 +57,20 @@ app.use((req, res, next) => {
 })
 
 // === routes and controllers
-app.get('/', (req, res) => {
-    // console.log(res.locals)
-    res.render('home.ejs', {
-        user: res.locals.user
-    })
-})
+// GET / - display form of posts
+app.get('/', async (req, res) => {
+    try {
+    //READ function to find all favorite drinks
+      const posts = await db.beverage.findAll()
+      res.render('home.ejs', {
+        posts: posts,
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  })
+
+
 
 app.use('/users', require('./controllers/users'))
 app.use('/drink', require('./controllers/drink'))
