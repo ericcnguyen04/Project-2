@@ -27,21 +27,39 @@ router.post('/', (req, res) => {
 })
 
 // DELETE  /drink/delete
-router.post('/:idx', (req, res) => {
-    db.beverage.delete({
-        where: {
-            id: req.params.id
-        }
-    })
-    .then((post) => {
+router.delete('/:id', async (req, res) => {
+    // console.log('delete route')
+    try {
+        const deletePost = await db.beverage.findByPk(req.params.id)
+        deletePost.destroy()
         res.redirect('/')
-    })
-    .catch((error) => {
-        res.status(400).render('main/404')
-    })
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+// GET /drink/edit
+router.put('/:idx', (req, res) => {
+    res.render('drink/edit.ejs')
 })
 
 // PUT /drink/edit
+router.put('/:idx', async (req, res) => {
+    try {
+        //READ function to find all favorite drinks
+          const editDrinks = await db.favorite.findAll({
+            where: {
+              userId: res.locals.user.id
+            },
+            include: [db.comment]
+          })
+          res.render('./drink/edit.ejs', {
+            favDrinks: favDrinks,
+          })
+        } catch (error) {
+          console.log(error)
+        }
+})
 
 // export the router
 module.exports = router
