@@ -39,23 +39,18 @@ router.delete('/:id', async (req, res) => {
 })
 
 // GET /drink/edit
-router.put('/:idx', (req, res) => {
+router.get('/edit/:idx', (req, res) => {
     res.render('drink/edit.ejs')
 })
 
 // PUT /drink/edit
-router.put('/:idx', async (req, res) => {
+router.put('/edit/:idx', async (req, res) => {
     try {
         //READ function to find all favorite drinks
-          const editDrinks = await db.favorite.findAll({
-            where: {
-              userId: res.locals.user.id
-            },
-            include: [db.comment]
+          const editDrinks = await db.beverage.findAll({
+
           })
-          res.render('./drink/edit.ejs', {
-            favDrinks: favDrinks,
-          })
+          res.render('drink/edit.ejs')
         } catch (error) {
           console.log(error)
         }

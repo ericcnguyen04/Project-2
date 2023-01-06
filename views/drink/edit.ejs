@@ -1,5 +1,14 @@
 <%- include('../partials/header.ejs'), {user} %>
 
 hello
+<form method="POST" action="/drink/edit/<%= a.id %>/?_method=PUT">
+    <label for="name">Name:</label>
+    <input id="name" type="text" value="<%= dino.name %>" name="name" />
+
+    <label for="type">Type:</label>
+    <input id="type" type="text" value="<%= dino.type %>" name="type" />
+
+    <button type="submit">Submit</button>
+</form>
 
 <%- include('../partials/footer.ejs') %>
