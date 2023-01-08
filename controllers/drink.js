@@ -39,21 +39,40 @@ router.delete('/:id', async (req, res) => {
 })
 
 // GET /drink/edit
-router.get('/edit/:idx', (req, res) => {
-    res.render('drink/edit.ejs')
+router.get('/edit', async (req, res) => {
+    try {
+        const drink = await db.beverage.findByPk(req.body.id)
+        res.send(drink)
+        // res.render('drink/edit.ejs',{
+        //     a: drink
+        // })
+
+    } catch (error) {
+      console.log(error)
+      res.send('bad')
+    }
 })
 
 // PUT /drink/edit
-router.put('/edit/:idx', async (req, res) => {
+router.put('/edit', async (req, res) => {
     try {
-        //READ function to find all favorite drinks
-          const editDrinks = await db.beverage.findAll({
-
+          //res.send(req.body.id)
+          const drink = await db.beverage.findByPk(req.body.id)
+          await drink.update({
+            name: req.body.name,
+            description: req.body.description,
+            ingredient: req.body.ingredient
           })
-          res.render('drink/edit.ejs')
+          res.redirect('/')
         } catch (error) {
           console.log(error)
+          res.send('bad')
         }
+})
+
+// GET /api
+router.get('', (req,res) => {
+    
 })
 
 // export the router

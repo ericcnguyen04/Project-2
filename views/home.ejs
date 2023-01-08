@@ -4,18 +4,21 @@
 
 <% posts.forEach(function(a) { %>
     <div>
-        <h2>
-            <a href="/drink/<%= a.id %>"><%= a.name %></a>
+        <h2 class="titlePost">
+           <%= a.name %>
         </h2>
-        <h3><%= a.description %></h3>
-        <p> <%= a.ingredient%></p>
+        <h3 class="description"><%= a.description %></h3>
+        <p class="ingredient"> <%= a.ingredient%></p>
         <!--  if (user.id == user) { -->
         <!-- delete button to remove post from db -->
-        <form method="POST" action="/drink/<%= a.id %>/?_method=DELETE">
-        <button type="submit">Delete</button>
-        </form>
+        <form method="POST" action="/drink/<%= a.id %>?_method=DELETE">
+        <button type="submit" class="delete">Delete</button>
         <!-- link to a page that will show an edit form for this dino -->
-        <a href="/drink/edit/<%= a.id %>">edit</a>
+        </form>
+        <!-- <p><%= a.id %></p> -->
+        <form method="GET" action="/drink/edit">
+        <button type="submit" name='id' value="<%= a.id %>"> Edit </button>    
+        </form>
         <!--  }  -->
     </div>
   <% }) %>

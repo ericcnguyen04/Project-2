@@ -1,14 +1,26 @@
 <%- include('../partials/header.ejs'), {user} %>
 
-hello
-<form method="POST" action="/drink/edit/<%= a.id %>/?_method=PUT">
-    <label for="name">Name:</label>
-    <input id="name" type="text" value="<%= dino.name %>" name="name" />
+<h1 class="describe">Edit your beverage!</h1>
 
-    <label for="type">Type:</label>
-    <input id="type" type="text" value="<%= dino.type %>" name="type" />
+<form action="/drink/edit?_method=PUT" method="POST">
+  <div>
+    <label>Name</label><br>
+    <input type="text" id="name" name="name" autocomplete='off' required>
+  </div>
 
-    <button type="submit">Submit</button>
+  <div>
+    <label>Description</label><br>
+    <textarea type="text" id="Description" name="description" autocomplete='off' required></textarea>
+  </div>
+
+  <div>
+    <label>Ingredient</label><br>
+    <textarea type="text" id="ingredient" name="ingredient" autocomplete='off' required></textarea>
+  </div>
+
+<input hidden name="id" value="<%= a.id %>">
+
+  <input type="submit" class="btn btn-primary">
 </form>
 
 <%- include('../partials/footer.ejs') %>

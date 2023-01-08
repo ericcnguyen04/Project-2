@@ -4,32 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/header.css">
     <title>Redface</title>
-    <link rel="stylesheet" href="/path/to/bulma.css">
+    <link rel="stylesheet" href="node_modules/bulma/css/bulma.css">
     <style>
         body {
             background-color: rgb(182, 182, 182);
         }
+        .headerUrl {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            list-style-type: none;  
+            color: rgb(214, 183, 183); 
+            text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+            font-size: 48px;
+            background-color: brown;
+            padding: 16px 24px;
+            margin-top: 0;
+        }
+        .header {
+            justify-content: space-between;
+            border: solid 1px green;
+        }
+
     </style>
 </head>
 <body>
     <script src="/path/to/bulma.js"></script>
-    <div>
+    <div class="header">
         <nav>
-            <ul class="links">
+            <ul class="headerUrl">
                 <!-- show home whether is logged in or not -->
-                <li><a href='/'>Redface</a></li>
+                <li><a href='/' class="headerUrl">Redface</a></li>
                 <% if (user) { %>
                 <!-- show these if user is logged i -->
-                <li><a href='/users/profile'>Profile</a></li>
-                <li><a href='/drink/new'>Create a Drink</a></li>
-                <li><a href='/users/logout'>Logout</a></li>
+                <li><a href='/users/profile' class="headerUrl">Profile</a></li>
+                <li><a href='/drink/new' class="headerUrl">Create a Drink</a></li>
+                <li><a href='/users/logout' class="headerUrl">Logout</a></li>
                 <% } else { %>
                 <!-- show these if user not logged in -->
-                <li><a href='/users/new'>Sign Up</a></li>
-                <li><a href='/users/login'>Login</a></li>
+                <li><a href='/users/new' class="headerUrl">Sign Up</a></li>
+                <li><a href='/users/login' class="headerUrl">Login</a></li>
                 <% } %>
             </ul>
         </nav>
+    </div>
     <!-- <h1 id="title">Express Auth Boilerplate for p2</h1> -->

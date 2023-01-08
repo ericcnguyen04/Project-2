@@ -1,20 +1,25 @@
-<h1>Create a Drink!</h1>
+<%- include('../partials/header.ejs'), {user} %>
+
+
+<h1 class="describe">Describe your beverage!</h1>
 
 <form action="/drink" method="POST">
   <div>
-    <label>Name</label>
+    <label>Name</label><br>
     <input type="text" id="name" name="name" required>
   </div>
 
   <div>
-    <label>Description</label>
+    <label>Description</label><br>
     <textarea type="text" id="Description" name="description" required></textarea>
   </div>
 
   <div>
-    <label>Ingredient</label>
+    <label>Ingredient</label><br>
     <textarea type="text" id="ingredient" name="ingredient" required></textarea>
   </div>
 
   <input type="submit" class="btn btn-primary">
 </form>
+
+</body>

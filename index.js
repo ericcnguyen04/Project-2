@@ -63,7 +63,7 @@ app.get('/', async (req, res) => {
     //READ function to find all favorite drinks
       const posts = await db.beverage.findAll()
       res.render('home.ejs', {
-        posts: posts,
+        posts: posts
       })
     } catch (error) {
       console.log(error)
