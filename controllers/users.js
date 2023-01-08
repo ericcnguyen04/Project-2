@@ -105,6 +105,7 @@ router.get('/profile', (req, res) => {
     } else {
         res.render('users/profile.ejs', {
             user: res.locals.user
+            // posts: posts
         })
     }
 })

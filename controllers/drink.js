@@ -16,7 +16,8 @@ router.post('/', (req, res) => {
     db.beverage.create({
         name: req.body.name,
         description: req.body.description,
-        ingredient: req.body.ingredient
+        ingredient: req.body.ingredient,
+        userId: req.body.userId
     })
     .then((post) => {
         res.redirect('/')
@@ -41,11 +42,10 @@ router.delete('/:id', async (req, res) => {
 // GET /drink/edit
 router.get('/edit', async (req, res) => {
     try {
-        const drink = await db.beverage.findByPk(req.body.id)
-        res.send(drink)
-        // res.render('drink/edit.ejs',{
-        //     a: drink
-        // })
+        const drink = await db.beverage.findByPk(req.query.id)
+        res.render('drink/edit.ejs',{
+            a: drink
+        })
 
     } catch (error) {
       console.log(error)

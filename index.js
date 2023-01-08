@@ -60,8 +60,14 @@ app.use((req, res, next) => {
 // GET / - display form of posts
 app.get('/', async (req, res) => {
     try {
+      const api = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita'
     //READ function to find all favorite drinks
-      const posts = await db.beverage.findAll()
+      const posts = await db.beverage.findAll({
+        include: {
+          model: db.user
+        }
+      })
+      // res.send(posts)
       res.render('home.ejs', {
         posts: posts
       })
@@ -69,8 +75,6 @@ app.get('/', async (req, res) => {
       console.log(error)
     }
   })
-
-
 
 app.use('/users', require('./controllers/users'))
 app.use('/drink', require('./controllers/drink'))
