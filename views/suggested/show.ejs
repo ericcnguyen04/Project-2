@@ -1,17 +1,20 @@
 <%- include('../partials/header.ejs'), {user} %>
 
+<div class="box">
 
-<h2><%= name.drinks[0].strDrink%></h2>
-<h3><%= name.drinks[0].strCategory%>, <%= name.drinks[0].strAlcoholic%></h3>
-<p>
-    <%= name.drinks[0].strIngredient1%>,
-    <%= name.drinks[0].strIngredient2%>,
-    <%= name.drinks[0].strIngredient3%>,
-    <%= name.drinks[0].strIngredient4%>,
-    <%= name.drinks[0].strIngredient5%>,
-    <%= name.drinks[0].strIngredient6%>,
-    <%= name.drinks[0].strIngredient7%>,
-    <%= name.drinks[0].strIngredient8%>,
-</p>
+    <h2 class="title is-4"><%= name.drinks[0].strDrink%></h2>
+    
+    <h3 class="subtitle is-6"><%= name.drinks[0].strCategory%>, <%= name.drinks[0].strAlcoholic%></h3>
+    <p>
+        <%= name.drinks[0].strIngredient1%>,
+        <%= name.drinks[0].strIngredient2%>,
+        <%= name.drinks[0].strIngredient3%>,
+        <%= name.drinks[0].strIngredient4%>,
+        <%= name.drinks[0].strIngredient5%>,
+        <%= name.drinks[0].strIngredient6%>,
+        <%= name.drinks[0].strIngredient7%>,
+        <%= name.drinks[0].strIngredient8%>,
+    </p>
+</div>
 
 <%- include('../partials/footer.ejs') %>

@@ -1,11 +1,17 @@
 <%- include('../partials/header.ejs', { user }) %> 
 
+<div class="box">
+  <h2 class="title has-text-centered">Alcoholic feed</h2>
+</div>
 
 <% posts.forEach(function(a) { %>
   <%if (a.categories[0].dataValues.name === 'Alcoholic') {%>
     <div class="box">
-        <h2 class="titlePost">
-           <%= a.name %> by <%= a.user.email %>
+        <h2>
+           <span class="title is-4">
+            <%= a.name %>
+           </span>
+            by <%= a.user.email %>
         </h2>
         <h3 class="description"><%= a.description %></h3>
         <p class="ingredient"> <%= a.ingredient%></p>
