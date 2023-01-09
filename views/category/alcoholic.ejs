@@ -1,9 +1,8 @@
-<%- include('partials/header.ejs', { user }) %> 
+<%- include('../partials/header.ejs', { user }) %> 
 
-<h2 class="title">Welcome Home, user</h2>
-<h2 class="title">This is your feed</h2>
 
 <% posts.forEach(function(a) { %>
+  <%if (a.categories[0].dataValues.name === 'Alcoholic') {%>
     <div class="box">
         <h2 class="titlePost">
            <%= a.name %> by <%= a.user.email %>
@@ -25,8 +24,7 @@
           </form>
           <% } %>
         <% } %>
-
+      <% } %>
     </div>
-  <% }) %>
-
-<%- include('partials/footer.ejs') %> 
+<% }) %>
+<%- include('../partials/footer.ejs') %> 

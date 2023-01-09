@@ -78,6 +78,7 @@ app.get('/', async (req, res) => {
 
 app.use('/users', require('./controllers/users'))
 app.use('/drink', require('./controllers/drink'))
+app.use('/category', require('./controllers/category'))
 
 
 

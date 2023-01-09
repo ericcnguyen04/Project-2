@@ -97,15 +97,20 @@ router.get('/logout', (req,res) => {
 })
 
 // GET /users/profile -- show the user their profile page
-router.get('/profile', (req, res) => {
+router.get('/profile', async (req, res) => {
+    const posts = await db.beverage.findAll({
+        include: {
+          model: db.user
+        }
+    })
     // if the user is not logged in -- they are not allowed to be here
     console.log(res.locals.user, 'aaaaaaaaaaaaaaaa')
     if (!res.locals.user) {
         res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource!') 
     } else {
         res.render('users/profile.ejs', {
-            user: res.locals.user
-            // posts: posts
+            user: res.locals.user,
+            posts: posts
         })
     }
 })

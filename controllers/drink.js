@@ -12,20 +12,31 @@ router.get('/new', (req, res) => {
 })
 
 // POST /drink/new - creation of post in browser
-router.post('/', (req, res) => {
-    db.beverage.create({
-        name: req.body.name,
-        description: req.body.description,
-        ingredient: req.body.ingredient,
-        userId: req.body.userId
-    })
-    .then((post) => {
+router.post('/', async (req, res) => {
+    try {
+        const [newBeverage, beverageCreated] = await db.beverage.findOrCreate({
+            where: {
+            name: req.body.name,
+            description: req.body.description,
+            ingredient: req.body.ingredient,
+            userId: res.locals.user.id
+            }
+        })
+        const [category, create] = await db.category.findOrCreate({
+            where: {
+                name: req.body.category
+            }
+        })
+        await newBeverage.addCategories(category)
         res.redirect('/')
-    })
-    .catch((error) => {
-        res.status(400).render('main/404')
-    })
+    } catch (error) {
+        res.send(error)
+        // console.log(error)
+        // res.status(400)
+    }
 })
+
+
 
 // DELETE  /drink/delete
 router.delete('/:id', async (req, res) => {
@@ -70,10 +81,10 @@ router.put('/edit', async (req, res) => {
         }
 })
 
-// GET /api
-router.get('', (req,res) => {
+// // GET /api
+// router.get('', (req,res) => {
     
-})
+// })
 
 // export the router
 module.exports = router

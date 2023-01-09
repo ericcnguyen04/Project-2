@@ -11,7 +11,7 @@
 
   <div>
     <label>Description</label><br>
-    <textarea type="text" id="Description" name="description" required></textarea>
+    <textarea type="text" id="description" name="description" required></textarea>
   </div>
 
   <div>
@@ -19,9 +19,14 @@
     <textarea type="text" id="ingredient" name="ingredient" required></textarea>
   </div>
 
+  <div>
+    <input type="radio" name='category' class="skins" id="red" value='Alcoholic' checked required>Alcoholic
+    <input type="radio" name='category' class="skins" id="red" value='Non-Alcoholic' required>Non-alcoholic
+  </div>
+
   <input name='userId' value='<%= user.id %>' hidden>
 
   <input type="submit" class="btn btn-primary">
 </form>
 
-</body>
+<%- include('../partials/footer.ejs') %>
