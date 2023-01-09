@@ -25,7 +25,6 @@
         }
         .header {
             justify-content: space-between;
-            border: solid 1px green;
         }
 
     </style>
@@ -39,9 +38,10 @@
                 <li><a href='/' class="headerUrl">Redface</a></li>
                 <% if (user) { %>
                 <!-- show these if user is logged i -->
-                <li><a href='/users/profile' class="headerUrl">Profile</a></li>
                 <li><a href='/category' class="headerUrl">Category</a></li>
+                <li><a href='/suggested' class="headerUrl">Suggested</a></li>
                 <li><a href='/drink/new' class="headerUrl">Create a Drink</a></li>
+                <li><a href='/users/profile' class="headerUrl">Profile</a></li>
                 <li><a href='/users/logout' class="headerUrl">Logout</a></li>
                 <% } else { %>
                 <!-- show these if user not logged in -->

@@ -1,0 +1,17 @@
+<%- include('../partials/header.ejs'), {user} %>
+
+
+<h2><%= name.drinks[0].strDrink%></h2>
+<h3><%= name.drinks[0].strCategory%>, <%= name.drinks[0].strAlcoholic%></h3>
+<p>
+    <%= name.drinks[0].strIngredient1%>,
+    <%= name.drinks[0].strIngredient2%>,
+    <%= name.drinks[0].strIngredient3%>,
+    <%= name.drinks[0].strIngredient4%>,
+    <%= name.drinks[0].strIngredient5%>,
+    <%= name.drinks[0].strIngredient6%>,
+    <%= name.drinks[0].strIngredient7%>,
+    <%= name.drinks[0].strIngredient8%>,
+</p>
+
+<%- include('../partials/footer.ejs') %>
